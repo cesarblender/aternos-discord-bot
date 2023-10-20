@@ -4,7 +4,7 @@ import "github.com/bwmarrin/discordgo"
 
 const (
 	HelpCommand      = "help"
-	PingCommand      = "ping"
+	PingCommand      = "pinga"
 	ConfigureCommand = "configure"
 	StartCommand     = "start"
 	StopCommand      = "stop"
@@ -25,18 +25,18 @@ var (
 var commands = []*discordgo.ApplicationCommand{
 	{
 		Name:        ConfigureCommand,
-		Description: "Save configuration settings",
+		Description: "Guardar la configuración",
 		Options: []*discordgo.ApplicationCommandOption{
 			{
 				Name:         SessionOption,
-				Description:  "Set the ATERNOS_SESSION cookie value",
+				Description:  "Establecer el valor de la cookie ATERNOS_SESSION",
 				Type:         discordgo.ApplicationCommandOptionString,
 				Required:     true,
 				ChannelTypes: []discordgo.ChannelType{discordgo.ChannelTypeGuildText},
 			},
 			{
 				Name:         ServerOption,
-				Description:  "Set the ATERNOS_SERVER cookie value",
+				Description:  "Establecer el valor de la cookie ATERNOS_SERVER",
 				Type:         discordgo.ApplicationCommandOptionString,
 				Required:     true,
 				ChannelTypes: []discordgo.ChannelType{discordgo.ChannelTypeGuildText},
@@ -47,43 +47,43 @@ var commands = []*discordgo.ApplicationCommand{
 	},
 	{
 		Name:                     StartCommand,
-		Description:              "Start the minecraft server",
+		Description:              "Iniciar el servidor de Minecraft",
 		DefaultMemberPermissions: &adminPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     StopCommand,
-		Description:              "Stop the minecraft server",
+		Description:              "Detener el servidor de Minecraft",
 		DefaultMemberPermissions: &adminPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     PingCommand,
-		Description:              "Check if the discord bot is still alive",
+		Description:              "Comprobar si el bot de Discord está activo",
 		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     StatusCommand,
-		Description:              "Get the minecraft server status",
+		Description:              "Obtener el estado del servidor de Minecraft",
 		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     InfoCommand,
-		Description:              "Get detailed information about the minecraft server status",
+		Description:              "Obtener información detallada sobre el estado del servidor de Minecraft",
 		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     PlayersCommand,
-		Description:              "List active players",
+		Description:              "Listar jugadores activos",
 		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     HelpCommand,
-		Description:              "Get help",
+		Description:              "Obtener ayuda",
 		DefaultMemberPermissions: &adminPermissions,
 		DMPermission:             &dmPermission,
 	},

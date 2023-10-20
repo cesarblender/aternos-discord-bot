@@ -2,6 +2,7 @@ package message
 
 import (
 	"fmt"
+
 	"github.com/bwmarrin/discordgo"
 	aternos "github.com/sleeyax/aternos-api"
 )
@@ -10,17 +11,17 @@ func CreateServerStatusNotificationEmbed(info *aternos.ServerInfo) (*discordgo.M
 	switch info.Status {
 	case aternos.Online:
 		return &discordgo.MessageEmbed{
-			Title:       "Server is online",
-			Description: fmt.Sprintf("Join now! Only %d seconds left.", info.Countdown),
+			Title:       "El servidor está en línea :v",
+			Description: fmt.Sprintf("papu dale rapido :''v el servidor se va a cerrar en %d segundos pendejo, te quiero mucho de verdad eres lo mejor que existe dios te bendiga te quiero te amo te aprecio mucho papu, de verdad, te quiero.", info.Countdown),
 			Color:       colorMap[aternos.Online],
 			Fields: []*discordgo.MessageEmbedField{
 				&discordgo.MessageEmbedField{
-					Name:   "Server address",
+					Name:   "Dirección del servidor",
 					Value:  fmt.Sprintf("`%s:%d`", info.Address, info.Port),
 					Inline: true,
 				},
 				&discordgo.MessageEmbedField{
-					Name:   "Dyn IP",
+					Name:   "IP Dinámica",
 					Value:  fmt.Sprintf("`%s`", info.DynIP),
 					Inline: true,
 				},
@@ -28,11 +29,11 @@ func CreateServerStatusNotificationEmbed(info *aternos.ServerInfo) (*discordgo.M
 		}, nil
 	case aternos.Offline:
 		return &discordgo.MessageEmbed{
-			Title:       "Server is offline",
-			Description: "The server is currently offline.",
+			Title:       "El servidor está fuera de línea",
+			Description: "El servidor está actualmente fuera de línea.",
 			Color:       colorMap[aternos.Offline],
 		}, nil
 	default:
-		return nil, fmt.Errorf("unknown server status code '%d'", info.Status)
+		return nil, fmt.Errorf("código de estado del servidor desconocido '%d'", info.Status)
 	}
 }
